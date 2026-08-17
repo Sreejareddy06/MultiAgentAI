@@ -1,0 +1,367 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+    height: 70px;
+    background: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #60a5fa;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background: white;
+}
+
+.tagline {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.description {
+    max-width: 650px;
+    margin: auto;
+    color: #6b7280;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   INPUT SECTION
+========================================= */
+
+.input-section {
+    max-width: 750px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+.input-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.input-box {
+    display: flex;
+    gap: 12px;
+}
+
+.input-box input {
+    flex: 1;
+    height: 55px;
+    padding: 0 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-box input:focus {
+    border-color: #2563eb;
+}
+
+.input-box button {
+    height: 55px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-box button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================
+   WORKFLOW SECTION
+========================================= */
+
+.workflow-section {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.workflow-section h2,
+.agents-section h2,
+.final-result-section h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #111827;
+}
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 40px;
+}
+
+.workflow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.workflow-node {
+    width: 130px;
+    padding: 20px 10px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.workflow-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.workflow-node span {
+    font-weight: bold;
+}
+
+.workflow-line {
+    width: 60px;
+    height: 2px;
+    background: #cbd5e1;
+}
+
+
+/* =========================================
+   AGENT SECTION
+========================================= */
+
+.agents-section {
+    padding: 70px 8%;
+    background: #eef2ff;
+    text-align: center;
+}
+
+.agents-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    text-align: left;
+}
+
+
+/* =========================================
+   AGENT CARD
+========================================= */
+
+.agent-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    min-height: 270px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease;
+}
+
+.agent-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.agent-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.research-icon {
+    background: #dbeafe;
+}
+
+.analysis-icon {
+    background: #ede9fe;
+}
+
+.risk-icon {
+    background: #fef3c7;
+}
+
+.decision-icon {
+    background: #dcfce7;
+}
+
+.agent-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.agent-status {
+    font-size: 13px;
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.agent-result {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #64748b;
+    min-height: 90px;
+}
+
+
+/* =========================================
+   FINAL RESULT
+========================================= */
+
+.final-result-section {
+    padding: 70px 8%;
+    text-align: center;
+    background: white;
+}
+
+#finalResult {
+    max-width: 800px;
+    margin: 25px auto 0;
+    padding: 25px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    color: #64748b;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: #111827;
+    color: #9ca3af;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .agents-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .input-box {
+        flex-direction: column;
+    }
+
+    .workflow {
+        flex-direction: column;
+    }
+
+    .workflow-line {
+        width: 2px;
+        height: 35px;
+    }
+
+    .agents-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+.agent-result {
+    max-height: 250px;
+    overflow-y: auto;
+}

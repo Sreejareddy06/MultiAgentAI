@@ -1,21 +1,27 @@
+from services.llm_service import generate_response
+
 def assess_risk(research_data):
-    topic = research_data["query"]
+
+    prompt = f"""
+    Assess risks for the following topic.
+
+    Research Report:
+    {research_data['summary']}
+
+    Provide:
+    1. Technical Risks
+    2. Financial Risks
+    3. Security Risks
+    4. Regulatory Risks
+    5. Risk Severity
+    6. Recommendations
+
+    Format the response professionally.
+    """
+
+    risk = generate_response(prompt)
 
     return {
         "agent": "Risk Agent",
-        "risk": f"""
-Risk Assessment Report for {topic}
-
-Potential Risks:
-1. Financial risks due to implementation costs.
-2. Technical risks due to system failures.
-3. Security and privacy concerns.
-4. Regulatory and compliance challenges.
-
-Severity:
-Medium to High
-
-Recommendation:
-Careful planning and monitoring are required before adopting {topic}.
-"""
+        "risk": risk
     }

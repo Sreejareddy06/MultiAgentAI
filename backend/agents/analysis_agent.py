@@ -1,27 +1,26 @@
+from services.llm_service import generate_response
+
 def analyze(research_data):
-    topic = research_data["query"]
+
+    prompt = f"""
+    Analyze the following research report.
+
+    Research Report:
+    {research_data['summary']}
+
+    Provide:
+    1. Key Findings
+    2. Strengths
+    3. Weaknesses
+    4. Opportunities
+    5. Conclusion
+
+    Format the response professionally.
+    """
+
+    analysis = generate_response(prompt)
 
     return {
         "agent": "Analysis Agent",
-        "analysis": f"""
-Analysis Report for {topic}
-
-Key Findings:
-1. The topic has significant impact across industries.
-2. Adoption is increasing rapidly.
-3. Multiple opportunities exist for growth and innovation.
-
-Strengths:
-- Improves efficiency
-- Supports better decision making
-- Enhances productivity
-
-Challenges:
-- Requires investment
-- Needs skilled professionals
-- May introduce operational complexity
-
-Conclusion:
-Overall, {topic} presents strong opportunities but requires proper planning and execution.
-"""
+        "analysis": analysis
     }

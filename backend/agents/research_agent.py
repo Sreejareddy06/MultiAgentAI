@@ -1,21 +1,24 @@
+from services.llm_service import generate_response
 
 def research(query):
+
+    prompt = f"""
+    Create a professional research report on: {query}
+
+    Include:
+    1. Overview
+    2. Key Findings
+    3. Benefits
+    4. Challenges
+    5. Conclusion
+
+    Format the report clearly.
+    """
+
+    summary = generate_response(prompt)
+
     return {
         "agent": "Research Agent",
         "query": query,
-        "summary": f"""
-Research Report on {query}
-
-Overview:
-{query} is an important topic that impacts multiple industries and technologies.
-
-Key Points:
-1. Growing adoption worldwide.
-2. Used in business and technology sectors.
-3. Provides opportunities for innovation.
-4. Has both benefits and challenges.
-
-Conclusion:
-Organizations should carefully evaluate {query} before implementation.
-"""
+        "summary": summary
     }

@@ -5,13 +5,42 @@ const progressFill = document.getElementById("progressFill");
 const progressText = document.getElementById("progressText");
 
 
+// ========================================
+// ACTIVITY TIMELINE ELEMENTS
+// ========================================
+
+const activityResearch =
+    document.getElementById("activityResearch");
+
+const activityAnalysis =
+    document.getElementById("activityAnalysis");
+
+const activityRisk =
+    document.getElementById("activityRisk");
+
+const activityDecision =
+    document.getElementById("activityDecision");
+
+
+// ========================================
+// RUN WORKFLOW
+// ========================================
+
 runButton.addEventListener("click", async function () {
 
     const topic = topicInput.value.trim();
 
+
+    // ========================================
+    // VALIDATE TOPIC
+    // ========================================
+
     if (topic === "") {
+
         alert("Please enter a topic first.");
+
         return;
+
     }
 
 
@@ -20,6 +49,7 @@ runButton.addEventListener("click", async function () {
     // ========================================
 
     runButton.textContent = "Running...";
+
     runButton.disabled = true;
 
 
@@ -35,7 +65,7 @@ runButton.addEventListener("click", async function () {
 
 
     // ========================================
-    // EXECUTIVE SUMMARY ELEMENTS
+    // EXECUTIVE SUMMARY
     // ========================================
 
     const summaryTopic =
@@ -93,7 +123,7 @@ runButton.addEventListener("click", async function () {
 
 
     // ========================================
-    // RESET PROGRESS BAR
+    // RESET PROGRESS
     // ========================================
 
     if (progressFill) {
@@ -111,6 +141,42 @@ runButton.addEventListener("click", async function () {
 
 
     // ========================================
+    // RESET ACTIVITY TIMELINE
+    // ========================================
+
+    if (activityResearch) {
+
+        activityResearch.textContent =
+            "Researching topic...";
+
+    }
+
+
+    if (activityAnalysis) {
+
+        activityAnalysis.textContent =
+            "Waiting for Research Agent...";
+
+    }
+
+
+    if (activityRisk) {
+
+        activityRisk.textContent =
+            "Waiting for Analysis Agent...";
+
+    }
+
+
+    if (activityDecision) {
+
+        activityDecision.textContent =
+            "Waiting for Risk Agent...";
+
+    }
+
+
+    // ========================================
     // STEP 1 — RESEARCH
     // ========================================
 
@@ -118,6 +184,14 @@ runButton.addEventListener("click", async function () {
         0,
         "🔎 Researching..."
     );
+
+
+    if (activityResearch) {
+
+        activityResearch.textContent =
+            "Researching " + topic + "...";
+
+    }
 
 
     if (progressFill) {
@@ -141,10 +215,27 @@ runButton.addEventListener("click", async function () {
             "✓ Research Completed"
         );
 
+
         updateStatus(
             1,
             "🧠 Analyzing..."
         );
+
+
+        if (activityResearch) {
+
+            activityResearch.textContent =
+                "Research completed successfully.";
+
+        }
+
+
+        if (activityAnalysis) {
+
+            activityAnalysis.textContent =
+                "Analyzing research findings...";
+
+        }
 
 
         if (progressFill) {
@@ -174,10 +265,27 @@ runButton.addEventListener("click", async function () {
             "✓ Analysis Completed"
         );
 
+
         updateStatus(
             2,
             "⚠️ Assessing Risks..."
         );
+
+
+        if (activityAnalysis) {
+
+            activityAnalysis.textContent =
+                "Analysis completed successfully.";
+
+        }
+
+
+        if (activityRisk) {
+
+            activityRisk.textContent =
+                "Assessing potential risks...";
+
+        }
 
 
         if (progressFill) {
@@ -207,10 +315,27 @@ runButton.addEventListener("click", async function () {
             "✓ Risk Assessment Completed"
         );
 
+
         updateStatus(
             3,
             "🎯 Making Decision..."
         );
+
+
+        if (activityRisk) {
+
+            activityRisk.textContent =
+                "Risk assessment completed successfully.";
+
+        }
+
+
+        if (activityDecision) {
+
+            activityDecision.textContent =
+                "Generating final decision...";
+
+        }
 
 
         if (progressFill) {
@@ -230,7 +355,7 @@ runButton.addEventListener("click", async function () {
 
 
     // ========================================
-    // STEP 4 — DECISION PROCESSING
+    // STEP 4 — DECISION
     // ========================================
 
     const step4 = setTimeout(function () {
@@ -250,9 +375,7 @@ runButton.addEventListener("click", async function () {
     try {
 
         const response = await fetch(
-
             `http://127.0.0.1:8000/workflow/${encodeURIComponent(topic)}`
-
         );
 
 
@@ -266,7 +389,8 @@ runButton.addEventListener("click", async function () {
         }
 
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
 
         console.log(
@@ -313,6 +437,14 @@ runButton.addEventListener("click", async function () {
                 data.research.summary ||
                 "Research completed.";
 
+
+            if (activityResearch) {
+
+                activityResearch.textContent =
+                    "Research completed successfully.";
+
+            }
+
         }
 
 
@@ -329,6 +461,14 @@ runButton.addEventListener("click", async function () {
             results[1].textContent =
                 data.analysis.analysis ||
                 "Analysis completed.";
+
+
+            if (activityAnalysis) {
+
+                activityAnalysis.textContent =
+                    "Analysis completed successfully.";
+
+            }
 
         }
 
@@ -347,6 +487,14 @@ runButton.addEventListener("click", async function () {
                 data.risk.risk ||
                 "Risk assessment completed.";
 
+
+            if (activityRisk) {
+
+                activityRisk.textContent =
+                    "Risk assessment completed successfully.";
+
+            }
+
         }
 
 
@@ -363,6 +511,14 @@ runButton.addEventListener("click", async function () {
             results[3].textContent =
                 data.decision.decision ||
                 "Decision completed.";
+
+
+            if (activityDecision) {
+
+                activityDecision.textContent =
+                    "Final decision generated successfully.";
+
+            }
 
 
             // ========================================
@@ -451,6 +607,42 @@ runButton.addEventListener("click", async function () {
 
 
         // ========================================
+        // ERROR TIMELINE
+        // ========================================
+
+        if (activityResearch) {
+
+            activityResearch.textContent =
+                "Workflow failed.";
+
+        }
+
+
+        if (activityAnalysis) {
+
+            activityAnalysis.textContent =
+                "Workflow failed.";
+
+        }
+
+
+        if (activityRisk) {
+
+            activityRisk.textContent =
+                "Workflow failed.";
+
+        }
+
+
+        if (activityDecision) {
+
+            activityDecision.textContent =
+                "Decision could not be generated.";
+
+        }
+
+
+        // ========================================
         // ERROR SUMMARY
         // ========================================
 
@@ -483,7 +675,8 @@ runButton.addEventListener("click", async function () {
 
         if (progressText) {
 
-            progressText.textContent = "Error";
+            progressText.textContent =
+                "Error";
 
         }
 
@@ -522,5 +715,3 @@ function updateStatus(index, message) {
     }
 
 }
-
-            

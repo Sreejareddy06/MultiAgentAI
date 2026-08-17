@@ -156,6 +156,26 @@
 
         <!-- Agent Results -->
         <section class="agents-section">
+            <div class="workflow-progress">
+
+    <div class="progress-header">
+
+        <span>Workflow Progress</span>
+
+        <span id="progressText">0%</span>
+
+    </div>
+
+    <div class="progress-bar">
+
+        <div
+            class="progress-fill"
+            id="progressFill">
+        </div>
+
+    </div>
+
+</div>
 
             <h2>
                 AI Agent Workflow
@@ -276,6 +296,81 @@
             </div>
 
         </section>
+
+
+        <!-- Executive Summary -->
+        <section class="final-result-section">
+
+            <h2>
+                Final Executive Summary
+            </h2>
+
+            <p class="section-description">
+                A consolidated summary of the multi-agent analysis.
+            </p>
+
+
+            <div id="finalResult">
+
+                <!-- Topic -->
+                <p>
+                    <strong>Topic:</strong>
+                    <span id="summaryTopic">
+                        Waiting for workflow...
+                    </span>
+                </p>
+
+
+                <!-- Workflow Status -->
+                <div class="summary-status">
+
+                    <p>
+                        ✓ Research Completed
+                    </p>
+
+                    <p>
+                        ✓ Analysis Completed
+                    </p>
+
+                    <p>
+                        ✓ Risk Assessment Completed
+                    </p>
+
+                    <p>
+                        ✓ Decision Generated
+                    </p>
+
+                </div>
+
+
+                <!-- Recommendation -->
+                <div class="recommendation">
+
+                    <h3>
+                        Recommended Action
+                    </h3>
+
+                    <p id="recommendationText">
+                        Run the workflow to generate a recommendation.
+                    </p>
+
+                </div>
+                <div class="confidence">
+
+    <h3>
+        Confidence Level
+    </h3>
+
+    <p id="confidenceValue">
+        --
+    </p>
+
+</div>
+
+            </div>
+
+        </section>
+
 
     </main>
 
